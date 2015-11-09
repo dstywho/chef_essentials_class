@@ -5,5 +5,5 @@ file '/var/www/html/index.html' do
 end
 
 service 'httpd' do
-  action :start
+  action [:start,:enable]
 end
