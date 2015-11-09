@@ -15,4 +15,12 @@ describe 'apache::default' do
   describe file('/var/www/html/index.html') do
     its(:content) { should match /.*Hi.*/ }
   end
+
+  describe port(80) do
+    it { should be_listening }
+  end
+
+  describe command('curl localhost') do
+    its(:stdout) { should match /.*Hi.*/i }
+  end
 end
