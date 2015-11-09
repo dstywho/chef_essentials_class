@@ -11,4 +11,8 @@ describe 'apache::default' do
     it{ should be_enabled }
     it{ should be_running }
   end
+
+  describe file('/var/www/html/index.html') do
+    its(:content) { should match /.*Hi.*/ }
+  end
 end
