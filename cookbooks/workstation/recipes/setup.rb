@@ -6,8 +6,9 @@
 # end
 package ['nano', 'tree', 'git']
 
-file '/etc/motd' do
-  content <<-EOF
-    Property of England
-EOF
+template '/etc/motd' do
+  source 'motd.erb'
+  owner 'root'
+  group 'root'
+  mode '0755'
 end
